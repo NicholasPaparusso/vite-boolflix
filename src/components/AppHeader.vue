@@ -1,4 +1,5 @@
 <script>
+import { store } from '../data/store';
 import AppSearch from './AppSearch.vue';
 export default {
 name: 'AppHeader',
@@ -10,13 +11,14 @@ components:{
 data(){
   return{
     ddActive: false,
+    store,
   }
 }
 }
 </script>
 
 <template>
-  <header>
+  <header >
 
     <div class="container-fluid">
      
@@ -38,7 +40,7 @@ data(){
        </div>
  
  
-       <div class="col-3 offset-3 d-flex align-items-center">
+       <div class="col-4 offset-2 d-flex align-items-center">
         
         <AppSearch/>
 
