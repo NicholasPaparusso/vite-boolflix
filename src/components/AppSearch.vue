@@ -7,6 +7,10 @@ data(){
   return{
     store,
   }
+},
+
+methods:{
+
 }
 }
 </script>
@@ -14,8 +18,9 @@ data(){
 <template>
   
 <div class="me-3 d-flex w-100 d-flex align-items-center justify-content-end">
-  <i @click="(store.isInputOn = true) && (store.ObjToSearch = '')" :class="{'active': store.isInputOn}" class="fa-solid fa-magnifying-glass"></i>
-  <input  @click.prevent="toggleDropdown" v-model="store.ObjToSearch"   :class="{'active': store.isInputOn}" type="text" placeholder="Titoli, Persone, Generi">
+  <i @click="(store.isInputOn = true) && (store.ObjToSearch = '')" :class="{'hide': store.isInputOn}" class="fa-solid fa-magnifying-glass"></i>
+  <i class="fa-solid fa-magnifying-glass" :class="{'active': store.isInputOn}"  v-show="store.isInputOn" ></i>
+  <input @keyup.enter="$emit('startSearch')"   v-model="store.ObjToSearch" :class="{'active': store.isInputOn}" type="text" placeholder="Titoli, Persone, Generi">
 </div>
 
 </template>
@@ -26,6 +31,7 @@ data(){
 @import '../style/partials/vars' ;
 
 div{
+  margin-top:100px ;
   position: relative;
   top: 0;
 }
@@ -39,8 +45,14 @@ i{
   z-index: 2;
   &.active{
     position: absolute;
-    left: 2px;
+    left: 0px;
+    opacity: 1;
+    animation: slide 1s;
   }
+  &.hide{
+    display: none;
+  }
+
 
   &:hover{
     transform: scale(1.2);

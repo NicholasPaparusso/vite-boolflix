@@ -42,7 +42,7 @@ data(){
  
        <div class="col-4 offset-2 d-flex align-items-center">
         
-        <AppSearch/>
+        <!-- <AppSearch /> -->
 
         <div @mouseenter="ddActive = true" class="user-icon">
           <img src="../assets/img/user.png" alt="">
@@ -105,10 +105,10 @@ data(){
 @import '../style/partials/vars';
 
 header{
+  background-color: $bg-color;
   height: 80px;
   width: 100%;
   position: fixed;
-  margin-bottom: 70px;
   transition: all .5s linear;
   padding: 10px 40px;
   &:hover{
