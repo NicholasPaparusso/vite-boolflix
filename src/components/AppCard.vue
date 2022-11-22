@@ -114,6 +114,12 @@ methods:{
     padding-top: 20px ;
     font-size: 0.8em;
     display: none;
+    animation: slide-up 1s ;
+
+    @keyframes slide-up {
+      from{bottom: -20%}
+      to{bottom: 0px;}
+    }
     
     background: rgba($color: #000000, $alpha: .7);
     span{
@@ -135,6 +141,7 @@ methods:{
     .description{
       overflow-y: auto;
       height: 80px;
+      scrollbar-width: thin;
     }
   }
 </style>
