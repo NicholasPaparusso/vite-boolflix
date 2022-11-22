@@ -24,7 +24,11 @@ methods:{
       return `fi fi-jp`
     }else if(this.obj.original_language === 'ko'){
       return `fi fi-kr`
-    }else {return false}
+    }else if(this.obj.original_language === 'es'){
+      return `fi fi-es`
+    }
+    
+    else {return false}
     
   }
 }
@@ -36,8 +40,8 @@ methods:{
   <div class="np-card"></div>
   <img src="" alt="">
   <ul>
-    <li>{{obj.original_title}}</li>
-    <li v-if="obj.title != obj.original_title">{{obj.title}}</li>
+    <li>{{obj.original_title || obj.name}}</li>
+    <li v-if="obj.title !== obj.original_title">{{obj.title}}</li>
     <li>{{obj.overview}}</li>
     <li>{{getVote()}}</li>
     <li><span v-if="getFlag()" :class="getFlag()"></span> <span v-else>{{obj.original_language}}</span></li>
@@ -47,7 +51,9 @@ methods:{
 </template>
 
 <style lang="scss" scoped>
-
+  .fi{
+    position: unset;
+  }
 </style>
 
 <!--  <span class="fi fi-it"></span>

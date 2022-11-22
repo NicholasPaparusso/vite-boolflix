@@ -45,7 +45,7 @@ export default {
       }
   },
   mounted(){
-    this.getApi(store.trendApi, store, axios)
+    this.getApi(store.trendApi)
   }
 
 }

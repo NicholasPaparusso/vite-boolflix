@@ -20,7 +20,13 @@ methods:{
 <div class="me-3 d-flex w-100 d-flex align-items-center justify-content-end">
   <i @click="(store.isInputOn = true) && (store.ObjToSearch = '')" :class="{'hide': store.isInputOn}" class="fa-solid fa-magnifying-glass"></i>
   <i class="fa-solid fa-magnifying-glass" :class="{'active': store.isInputOn}"  v-show="store.isInputOn" ></i>
-  <input @keyup.enter="$emit('startSearch')"   v-model="store.ObjToSearch" :class="{'active': store.isInputOn}" type="text" placeholder="Titoli, Persone, Generi">
+  <input @keyup.enter="$emit('startSearch')"   v-model.trim="store.ObjToSearch" :class="{'active': store.isInputOn}" type="text" placeholder="Titoli, Persone, Generi">
+  <select v-model="store.type" name="" id="">
+    <option selected value="">cerca</option>
+    <option value="movie">Film</option>
+    <option value="tv">Serie Tv</option>
+    <option value="multi">All</option>
+  </select>
 </div>
 
 </template>
@@ -60,7 +66,7 @@ i{
 
 input{
   display: block;
-  width: 100%;
+  width: 80%;
   height: 30px  ;
   border: 1px solid $text-color;
   border-radius: 5px;
@@ -88,7 +94,7 @@ input{
 }
 
 @keyframes slide{
-  from{ left: 100%; opacity: 0;}
+  from{ left: 15%; opacity: 0;}
   to {left: 0%; opacity: 1;}
   
 }
