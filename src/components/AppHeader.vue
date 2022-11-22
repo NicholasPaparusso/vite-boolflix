@@ -37,12 +37,13 @@ data(){
           <li><a href="#">Sfoglia per lingua</a></li>
           <li><a href="#">La mia lista</a></li>
          </ul>
+
        </div>
  
  
        <div class="col-4 offset-2 d-flex align-items-center">
         
-        <!-- <AppSearch /> -->
+        <AppSearch/> 
 
         <div @mouseenter="ddActive = true" class="user-icon">
           <img src="../assets/img/user.png" alt="">

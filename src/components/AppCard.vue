@@ -3,6 +3,30 @@ export default {
 name: 'AppCard',
 props:{
   obj: Object
+},
+
+data(){
+  return
+},
+
+methods:{
+
+  getVote(){
+   return Math.ceil(this.obj.vote_average / 2)
+  },
+
+  getFlag(){
+    if(this.obj.original_language === 'en'){
+      return  `fi fi-gb`
+    }else if(this.obj.original_language === 'it'){
+      return `fi fi-it`
+    }else if(this.obj.original_language === 'ja'){
+      return `fi fi-jp`
+    }else if(this.obj.original_language === 'ko'){
+      return `fi fi-kr`
+    }else {return false}
+    
+  }
 }
 
 }
@@ -13,15 +37,20 @@ props:{
   <img src="" alt="">
   <ul>
     <li>{{obj.original_title}}</li>
-    <li>{{obj.title}}</li>
+    <li v-if="obj.title != obj.original_title">{{obj.title}}</li>
     <li>{{obj.overview}}</li>
-    <li>{{obj.vote_average}}</li>
-    <li>{{obj.original_language}}</li>
-
+    <li>{{getVote()}}</li>
+    <li><span v-if="getFlag()" :class="getFlag()"></span> <span v-else>{{obj.original_language}}</span></li>
+ 
   </ul>
+  
 </template>
-
 
 <style lang="scss" scoped>
 
 </style>
+
+<!--  <span class="fi fi-it"></span>
+  <span class="fi fi-gb"></span> 
+  <span class="fi fi-ja"></span> 
+  <span class="fi fi-ko"></span>  -->

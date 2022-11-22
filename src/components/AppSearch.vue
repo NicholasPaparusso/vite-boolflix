@@ -31,7 +31,6 @@ methods:{
 @import '../style/partials/vars' ;
 
 div{
-  margin-top:100px ;
   position: relative;
   top: 0;
 }

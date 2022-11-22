@@ -3,14 +3,12 @@ import axios from 'axios';
 import { store } from './data/store'
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
-import AppSearch from './components/AppSearch.vue';
 export default {
   name: 'App',
 
   components:{
     AppHeader,
     AppMain,
-    AppSearch,
   },
 
   data(){
@@ -54,8 +52,8 @@ export default {
 </script>
 
 <template>
+
   <AppHeader/>
-  <AppSearch @startSearch="Search()" />
   <AppMain/>
 </template>
 
