@@ -66,7 +66,7 @@ i{
 
 input{
   display: block;
-  width: 80%;
+  width: 70%;
   height: 30px  ;
   border: 1px solid $text-color;
   border-radius: 5px;
@@ -99,6 +99,16 @@ input{
   
 }
       
+select{
+ background-color: $bg-color;
+  width: 25%;
+  min-width: 115px;
+  border-radius: 5px ;
+  color: $text-color;
+  cursor: pointer;
+  height: 30px;
+  padding: 0 10px;
+}
     
 
 </style>

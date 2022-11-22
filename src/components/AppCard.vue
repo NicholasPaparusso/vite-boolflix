@@ -30,6 +30,10 @@ methods:{
     
     else {return false}
     
+  },
+
+  getImage(){
+    return `https://image.tmdb.org/t/p/w300/${this.obj.poster_path}`
   }
 }
 
@@ -37,26 +41,100 @@ methods:{
 </script>
 
 <template>
-  <div class="np-card"></div>
-  <img src="" alt="">
-  <ul>
-    <li>{{obj.original_title || obj.name}}</li>
-    <li v-if="obj.title !== obj.original_title">{{obj.title}}</li>
-    <li>{{obj.overview}}</li>
-    <li>{{getVote()}}</li>
-    <li><span v-if="getFlag()" :class="getFlag()"></span> <span v-else>{{obj.original_language}}</span></li>
- 
-  </ul>
+
   
+    <div class="np-card">
+      <img :src="getImage()" alt="">
+
+      <div class="info">
+   
+          <span>{{obj.original_title || obj.name}}</span>
+          <span v-if="getFlag()" :class="getFlag()"></span> <span v-else>{{obj.original_language}}</span>
+          <h6 v-if="obj.title !== obj.original_title">{{obj.title}}</h6>
+
+          <div class="vote">
+            <div class="e-star">
+               <i v-for="n in 5" class="fa-regular fa-star"></i>
+            </div>
+
+          <div class="f-star">
+            <i v-for="n in getVote()" class="fa-solid fa-star"></i>
+          </div>
+          </div>
+         
+          
+          <div class="description">
+            <p>
+              {{obj.overview}}
+            </p>
+          </div>
+     
+      </div>
+
+  </div>
+
 </template>
 
 <style lang="scss" scoped>
+
+@import '../style/partials/vars' ;
+  .np-card{
+    max-width: calc((100% / 5) - 30px);
+    margin-right: 30px;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    border-radius: 10px;
+    transition: all .3s ;
+
+    &:hover .info{
+      display: block;
+    }
+    
+    &:hover{
+      transform: scale(1.15);
+      z-index: 2;
+    }
+
+    img{
+      border-radius: 10px;
+    }
+  }
   .fi{
     position: unset;
   }
-</style>
 
-<!--  <span class="fi fi-it"></span>
-  <span class="fi fi-gb"></span> 
-  <span class="fi fi-ja"></span> 
-  <span class="fi fi-ko"></span>  -->
+
+  .info{
+    padding: 10px;
+
+    position: absolute;
+    background-color: $bg-color ;
+    bottom: 0px;
+    padding-top: 20px ;
+    font-size: 0.8em;
+    display: none;
+    
+    background: rgba($color: #000000, $alpha: .7);
+    span{
+      margin-right: 5px;
+
+      &:first-child{
+        font-size: 1.3em;
+      }
+    }
+    .vote{
+      height: 25px;
+      position: relative;
+      top: 0;
+    }
+    .e-star, .f-star{
+      position: absolute;
+      top: 0;
+    }
+    .description{
+      overflow-y: auto;
+      height: 80px;
+    }
+  }
+</style>

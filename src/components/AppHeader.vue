@@ -43,7 +43,7 @@ data(){
  
        <div class="col-4 offset-2 d-flex align-items-center">
         
-        <AppSearch/> 
+        <AppSearch @startSearch="$emit('startSearch')" /> 
 
         <div @mouseenter="ddActive = true" class="user-icon">
           <img src="../assets/img/user.png" alt="">
@@ -106,10 +106,12 @@ data(){
 @import '../style/partials/vars';
 
 header{
+  z-index: 99;
   background-color: $bg-color;
   height: 80px;
   width: 100%;
   position: fixed;
+  top: 0;
   transition: all .5s linear;
   padding: 10px 40px;
   &:hover{
@@ -118,7 +120,11 @@ header{
 
 
   .logo{
-    width: 120px;
+
+    img{
+      width: 120px;
+    }
+    
    flex-shrink: 0;
   }
 
@@ -172,7 +178,7 @@ header{
   background-color:  darken($bg-color, 10);
   padding: 15px 20px;
   font-size: 0.9em;
-
+  
   & div:first-child{
     position: absolute;
     top: -20px;

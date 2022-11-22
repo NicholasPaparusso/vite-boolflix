@@ -17,9 +17,7 @@ body{
 
 
 img{
-  width: 100%;
   object-fit: cover;
-
 }
 
 ul{
@@ -29,4 +27,9 @@ ul{
 a{
   color: darken($text-color, $amount: 20) ;
   text-decoration: none;
+}
+
+html{
+  overflow: hidden;
+  scroll-behavior: smooth;
 }

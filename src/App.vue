@@ -39,7 +39,7 @@ export default {
        })
       },
 
-      Search(){
+      search(){
         this.getApi(store.multiApi)
         
       }
@@ -53,7 +53,7 @@ export default {
 
 <template>
 
-  <AppHeader/>
+  <AppHeader @startSearch ='search()'/>
   <AppMain/>
 </template>
 
