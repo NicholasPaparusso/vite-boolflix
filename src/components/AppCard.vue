@@ -63,6 +63,9 @@ methods:{
           </div>
           </div>
          
+          <div class="genre">
+            <p>{{obj.genre}}</p>
+          </div>
           
           <div :class="{'short' : obj.overview === '' }" class="description">
             <p>
