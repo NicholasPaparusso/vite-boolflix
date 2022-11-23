@@ -21,16 +21,21 @@ methods:{
 
   <i @click="(store.isInputOn = true) && (store.ObjToSearch = '')" :class="{'hide': store.isInputOn}" class="fa-solid fa-magnifying-glass"></i>
 
-  <i class="fa-solid fa-magnifying-glass" :class="{'active': store.isInputOn}"  v-show="store.isInputOn" ></i>
+  <i @click="$emit('startSearch')" class="fa-solid fa-magnifying-glass" :class="{'active': store.isInputOn}"  v-show="store.isInputOn" ></i>
 
   <input @keyup.enter="$emit('startSearch')"   v-model.trim="store.apiPar.query" :class="{'active': store.isInputOn}" type="text" placeholder="Titoli, Persone, Generi">
 
-  <select v-model="store.type" name="" id="">
+  <select v-model="store.type" @change="$emit('startSearch')" name="" id="">
 
     <option selected value="">Seleziona</option>
     <option value="movie">Film</option>
     <option value="tv">Serie Tv</option>
 
+  </select>
+
+  <select>
+    <option value="">Generi</option>
+    <option value=""></option>
   </select>
 </div>
 
@@ -72,7 +77,7 @@ i{
 
 input{
   display: block;
-  width: 70%;
+  width: 50%;
   height: 30px  ;
   border: 1px solid $text-color;
   border-radius: 5px;
@@ -114,6 +119,7 @@ select{
   cursor: pointer;
   height: 30px;
   padding: 0 10px;
+  margin-right: 10px ;
 }
     
 

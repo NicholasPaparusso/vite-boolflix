@@ -5,6 +5,7 @@ import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppJumbo from './components/AppJumbo.vue';
 import AppTrend from './components/AppTrend.vue';
+import AppNoResult from './components/AppNoResult.vue'
 export default {
   name: 'App',
 
@@ -13,6 +14,7 @@ export default {
     AppTrend,
     AppJumbo,
     AppMain,
+    AppNoResult,
   },
 
   data(){
@@ -51,6 +53,7 @@ export default {
       search(){
         store.movie = [];
         store.tv = [];
+        store.firstSearch = true
         if(store.type===''){
           this.getApi('movie')
           this.getApi('tv')
@@ -72,6 +75,7 @@ export default {
 
   <AppHeader @startSearch ='search()'/>
   <AppJumbo v-if="store.movie.length === 0 && store.tv.length === 0"/>
+  <AppNoResult v-if="store.movie.length === 0 && store.tv.length === 0 && store.firstSearch === true"/>
   <AppTrend v-if="store.movie.length === 0 && store.tv.length === 0" />
   <AppMain v-if="store.movie.length > 0 && store.isApiLoaded === true"  title="Film" type="movie"/>
   <AppMain v-if="store.tv.length > 0 && store.isApiLoaded === true" title="Serie Tv" type="tv"/>

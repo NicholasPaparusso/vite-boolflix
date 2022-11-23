@@ -221,6 +221,7 @@ header{
 }
 
 .hamburger{
+  cursor: pointer;
   position: relative;
   top: 0;
 }

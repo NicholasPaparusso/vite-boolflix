@@ -26,11 +26,12 @@ export default {
 <template>
   <h2>{{title}}</h2>
   <div class="container-fluid np">
-    
-    <AppCard
+    <div class="row">
+      <AppCard
       v-for="(item, index) in store[type]"
       :key="index"
       :obj="item" />
+    </div>
   </div>
 
 </template>

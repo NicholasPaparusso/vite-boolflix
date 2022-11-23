@@ -14,5 +14,6 @@ export const store = reactive({
   isInputOn : false,
   tv:[],
   movie:[],
+  firstSearch :false,
 })
 

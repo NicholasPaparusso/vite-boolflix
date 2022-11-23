@@ -80,7 +80,8 @@ methods:{
 
 @import '../style/partials/vars' ;
   .np-card{
-    max-width: calc((100% / 5) - 30px);
+    width: calc((100% / 5 ) - 30px);
+    height: 400px;
     margin-right: 30px;
     cursor: pointer;
     position: relative;
@@ -153,5 +154,24 @@ methods:{
       height: 0px;
       overflow: hidden;
     }
+  }
+
+  @media only screen and (max-width: 1400px) {
+    .np-card{
+      width: calc((100% / 4) - 30px)
+    }
+
+  }
+    
+  @media only screen and (max-width: 1100px) {
+    .np-card{
+      width: calc((100% / 3) - 30px)
+    }
+  }
+    @media only screen and (max-width: 800px) {
+    .np-card{
+      width: calc((100% / 2) - 30px)
+    }
+
   }
 </style>
