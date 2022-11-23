@@ -38,6 +38,7 @@ export default {
        axios.get( store.generalApi + type, { params: store.apiPar})
        .then(result => {
          store[type] = result.data.results
+         console.log(store[type]);
          store.isApiLoaded = true
        })
 

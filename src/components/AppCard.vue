@@ -64,7 +64,7 @@ methods:{
           </div>
          
           
-          <div class="description">
+          <div :class="{'short' : obj.overview === '' }" class="description">
             <p>
               {{obj.overview}}
             </p>
@@ -99,7 +99,7 @@ methods:{
 
     img{
       border-radius: 10px;
-      width: 300px;
+      width: 100%;
       height: 400px;
     }
   }
@@ -147,6 +147,11 @@ methods:{
       padding: 10px;
       height: 80px;
       scrollbar-width: thin;
+    }
+
+    .short{
+      height: 0px;
+      overflow: hidden;
     }
   }
 </style>
