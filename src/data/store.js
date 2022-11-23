@@ -4,7 +4,7 @@ export const store = reactive({
   trendApi: 'https://api.themoviedb.org/3/trending/all/day?api_key=eb176afe1a12790e8da0dee303e225fd&language=it-IT' ,
   ObjToSearch:"",
   type : "",
-  filmListData: [],
+  trendData: [],
   isApiLoaded: false,
   isInputOn : false,
   filmApi: 'https://api.themoviedb.org/3/search/movie?api_key=eb176afe1a12790e8da0dee303e225fd&language=it-IT',

@@ -54,11 +54,11 @@ methods:{
 
           <div class="vote">
             <div class="e-star">
-               <i v-for="n in 5" class="fa-regular fa-star"></i>
+               <i v-for="(n, index) in 5" :key="index" class="fa-regular fa-star"></i>
             </div>
 
           <div class="f-star">
-            <i v-for="n in getVote()" class="fa-solid fa-star"></i>
+            <i v-for="(n , index) in getVote()" :key="index" class="fa-solid fa-star"></i>
           </div>
           </div>
          

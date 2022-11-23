@@ -3,12 +3,14 @@ import axios from 'axios';
 import { store } from './data/store'
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import AppJumbo from './components/AppJumbo.vue';
 export default {
   name: 'App',
 
   components:{
     AppHeader,
     AppMain,
+    AppJumbo
   },
 
   data(){
@@ -28,8 +30,8 @@ export default {
          }
        })
        .then(result => {
-         store.filmListData = result.data.results
-         console.log(store.filmListData);
+         store.trendData = result.data.results
+         console.log(store.trendtData);
          store.isApiLoaded = true
        })
 
@@ -54,6 +56,7 @@ export default {
 <template>
 
   <AppHeader @startSearch ='search()'/>
+  <AppJumbo/>
   <AppMain/>
 </template>
 
