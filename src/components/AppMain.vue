@@ -21,6 +21,7 @@ data(){
 <template>
 
   <div class="container-fluid np">
+    <h1>{{}}</h1>
     <AppCard
       v-for="(item, index) in store.trendData"
       :key="index"

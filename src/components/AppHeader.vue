@@ -22,26 +22,35 @@ data(){
 
     <div class="container-fluid">
      
-     <div class="row">
+     <div class="row d-flex  justify-items-center">
  
-       <div class="col-6 d-flex align-items-baseline pt-2">
-         <div class="logo me-2">
+       <div class="col-2 col-md-4 col-lg-5 col-xl-6 col-xxl-8 d-flex align-items-baseline pt-2">
+         <div class="logo me d-none d-md-block">
            <img src="/boolflix.png" alt="">
          </div>
 
-         <ul>
+         <ul class="nav">
           <li><a class="active" href="#">Home</a></li>
-          <li><a href="#">Serie TV</a></li>
-          <li><a href="#">Film</a></li>
-          <li><a href="#">Nuovi e popolari</a></li>
-          <li><a href="#">Sfoglia per lingua</a></li>
-          <li><a href="#">La mia lista</a></li>
+          <li class="d-none d-lg-block"><a href="#">Serie TV</a></li>
+          <li class="d-none d-lg-block"><a href="#">Film</a></li>
+          <li class="d-none d-xl-block"><a href="#">Nuovi e popolari</a></li>
+          <li class="d-none d-xxl-block"><a href="#">Sfoglia per lingua</a></li>
+          <li class="d-none d-xxl-block"><a href="#">La mia lista</a></li>
+          <li  class="hamburger d-xxl-none"><i class="fa-solid fa-bars"></i>
+            <ul class="hamburger-menu">
+              <li class="d-block d-lg-none"><a href="#">Serie TV</a></li>
+              <li class="d-block d-lg-none"><a href="#">Film</a></li>
+              <li class="d-block d-xl-none"><a href="#">Nuovi e popolari</a></li>
+              <li class="d-block d-xxl-none"><a href="#">Sfoglia per lingua</a></li>
+               <li class="d-block d-xxl-none"><a href="#">La mia lista</a></li>
+            </ul>
+          </li>
          </ul>
 
        </div>
  
  
-       <div class="col-4 offset-2 d-flex align-items-center">
+       <div class="col-10 col-md-8 col-lg-7 col-xl-6 col-xxl-4 d-flex align-items-center">
         
         <AppSearch @startSearch="$emit('startSearch')" /> 
 
@@ -120,7 +129,7 @@ header{
 
 
   .logo{
-
+    margin-right: 20px;
     img{
       width: 120px;
     }
@@ -130,6 +139,7 @@ header{
 
   ul{
     display: flex;
+
 
     li{
       margin: 0 10px;
@@ -210,5 +220,23 @@ header{
   }
 }
 
+.hamburger{
+  position: relative;
+  top: 0;
+}
+
+.hamburger-menu{
+  display: flex;
+  width: 166px;
+  padding: 10px;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 53px;
+  background-color: rgba($color: #000000, $alpha: .8); 
+  a:hover{
+    color: white;
+  }
+}
 
 </style>

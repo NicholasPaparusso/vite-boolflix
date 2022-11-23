@@ -101,7 +101,7 @@ input{
       
 select{
  background-color: $bg-color;
-  width: 25%;
+  width: 20%;
   min-width: 115px;
   border-radius: 5px ;
   color: $text-color;

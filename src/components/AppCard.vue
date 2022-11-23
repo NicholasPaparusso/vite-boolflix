@@ -140,6 +140,7 @@ methods:{
     }
     .description{
       overflow-y: auto;
+      padding: 10px;
       height: 80px;
       scrollbar-width: thin;
     }
