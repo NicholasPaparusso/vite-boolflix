@@ -1,34 +1,29 @@
 <script>
-
 import { store } from '../data/store';
 import AppCard from './AppCard.vue';
 
 export default {
-  name: 'AppMain',
+name: 'AppTrend',
 
-  props:{
-    title: String,
-    type: String
-  },
+components:{
+  AppCard,
+},
 
-  components:{
-    AppCard,
-  }, 
-
-  data(){
-    return{
-      store,
-    }
+data(){
+  return{
+    store,
   }
+},
+
 }
 </script>
 
 <template>
-  <h2>{{title}}</h2>
+  <h2>In primo piano</h2>
   <div class="container-fluid np">
     
     <AppCard
-      v-for="(item, index) in store[type]"
+      v-for="(item, index) in store.trendData"
       :key="index"
       :obj="item" />
   </div>
@@ -48,6 +43,5 @@ h2{
     flex-wrap: wrap;
     justify-content: center;
     row-gap: 40px;
-    margin-bottom: 80px;
   }
 </style>

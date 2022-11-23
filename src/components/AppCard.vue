@@ -6,7 +6,8 @@ props:{
 },
 
 data(){
-  return
+  return{
+  }
 },
 
 methods:{
@@ -33,7 +34,7 @@ methods:{
   },
 
   getImage(){
-    return `https://image.tmdb.org/t/p/w300/${this.obj.poster_path}`
+    return `https://image.tmdb.org/t/p/w300/${this.obj.poster_path}` 
   }
 }
 
@@ -44,8 +45,8 @@ methods:{
 
   
     <div class="np-card">
-      <img :src="getImage()" alt="">
-
+      <img  :src="getImage()" :alt="obj.original_title || obj.name ">
+      <img class="replace-img" v-show="obj.poster_path === null" src="https://montagnolirino.it/wp-content/uploads/2015/12/immagine-non-disponibile.png" alt="">
       <div class="info">
    
           <span>{{obj.original_title || obj.name}}</span>
@@ -98,6 +99,8 @@ methods:{
 
     img{
       border-radius: 10px;
+      width: 300px;
+      height: 400px;
     }
   }
   .fi{
@@ -113,6 +116,7 @@ methods:{
     bottom: 0px;
     padding-top: 20px ;
     font-size: 0.8em;
+    width: 100%;
     display: none;
     animation: slide-up 1s ;
 

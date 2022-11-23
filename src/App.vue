@@ -4,13 +4,15 @@ import { store } from './data/store'
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppJumbo from './components/AppJumbo.vue';
+import AppTrend from './components/AppTrend.vue';
 export default {
   name: 'App',
 
   components:{
     AppHeader,
+    AppTrend,
+    AppJumbo,
     AppMain,
-    AppJumbo
   },
 
   data(){
@@ -20,18 +22,22 @@ export default {
   },
 
   methods: {
-
-     getApi(api){
-       store.isApiLoaded = false ;
-       axios.get(api, {
-         params:{
-          adult: true,
-          query: store.ObjToSearch,
-         }
-       })
+    
+    getTrendsApi(){
+      axios.get(store.trendApi)
        .then(result => {
-         store.trendData = result.data.results
-         console.log(store.trendtData);
+         store.trendData = result.data.results  
+       })
+       .catch(error=>{
+         console.log('errore');
+       })
+    },
+
+     getApi(type){
+       store.isApiLoaded = false ;
+       axios.get( store.generalApi + type, { params: store.apiPar})
+       .then(result => {
+         store[type] = result.data.results
          store.isApiLoaded = true
        })
 
@@ -47,7 +53,9 @@ export default {
       }
   },
   mounted(){
-    this.getApi(store.trendApi)
+    this.getTrendsApi()
+    this.getApi('movie')
+    this.getApi('tv')
   }
 
 }
@@ -57,7 +65,9 @@ export default {
 
   <AppHeader @startSearch ='search()'/>
   <AppJumbo/>
-  <AppMain/>
+  <AppTrend/>
+  <AppMain title="Film" type="movie"/>
+  <AppMain title="Serie Tv" type="tv"/>
 </template>
 
 <style lang="scss">
