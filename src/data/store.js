@@ -5,10 +5,9 @@ export const store = reactive({
   generalApi: 'https://api.themoviedb.org/3/search/',
   apiPar: {
     api_key : 'eb176afe1a12790e8da0dee303e225fd',
-    query: 'matrix',
+    query: '',
     language: 'it-IT',
   },
-  ObjToSearch:"",
   type : "",
   trendData: [],
   isApiLoaded: false,

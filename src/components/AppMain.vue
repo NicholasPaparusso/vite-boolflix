@@ -39,6 +39,7 @@ export default {
 <style lang="scss" scoped>
 
 h2{
+  margin-top: 80px ;
   padding: 50px;
 }
   .np{
@@ -48,6 +49,6 @@ h2{
     flex-wrap: wrap;
     justify-content: center;
     row-gap: 40px;
-    margin-bottom: 80px;
+    margin-bottom: 80px ;
   }
 </style>

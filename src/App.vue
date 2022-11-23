@@ -49,14 +49,20 @@ export default {
       },
 
       search(){
-        this.getApi(store.multiApi)
+        store.movie = [];
+        store.tv = [];
+        if(store.type===''){
+          this.getApi('movie')
+          this.getApi('tv')
+        }else{
+          this.getApi(store.type)
+        }
+
         
       }
   },
   mounted(){
     this.getTrendsApi()
-    this.getApi('movie')
-    this.getApi('tv')
   }
 
 }
@@ -65,10 +71,10 @@ export default {
 <template>
 
   <AppHeader @startSearch ='search()'/>
-  <AppJumbo/>
-  <AppTrend/>
-  <AppMain title="Film" type="movie"/>
-  <AppMain title="Serie Tv" type="tv"/>
+  <AppJumbo v-if="store.movie.length === 0 && store.tv.length === 0"/>
+  <AppTrend v-if="store.movie.length === 0 && store.tv.length === 0" />
+  <AppMain v-if="store.movie.length > 0 && store.isApiLoaded === true"  title="Film" type="movie"/>
+  <AppMain v-if="store.tv.length > 0 && store.isApiLoaded === true" title="Serie Tv" type="tv"/>
 </template>
 
 <style lang="scss">
