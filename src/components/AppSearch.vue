@@ -1,6 +1,7 @@
 <script>
 import { store } from '../data/store';
 import axios from 'axios';
+import { computed } from '@vue/runtime-core';
 export default {
 name: 'AppMain',
 
@@ -26,7 +27,9 @@ methods:{
        })
       },
 
-}
+},
+
+
 }
 </script>
 
@@ -40,17 +43,15 @@ methods:{
 
   <input @keyup.enter="$emit('startSearch')"   v-model.trim="store.apiPar.query" :class="{'active': store.isInputOn}" type="text" placeholder="Titoli, Persone, Generi">
 
-  <select v-model="store.type" @change="this.getGenre(store.type)" name="" id="">
+  <select v-model="store.selectedGenre" v-show="store.type !== ''">
+    <option value="">Generi</option>
+    <option v-for="(gen, index) in  store.genre" :key="index" :value="gen.id">{{gen.name}}</option>
+  </select>
 
+  <select v-model="store.type" @change="this.getGenre(store.type)" name="" id="">
     <option selected value="">Seleziona</option>
     <option value="movie">Film</option>
     <option value="tv">Serie Tv</option>
-
-  </select>
-
-  <select v-show="store.type !== ''">
-    <option value="">Generi</option>
-    <option v-for="(gen, index) in  store.genre" :key="index" :value="gen.id">{{gen.name}}</option>
   </select>
 
 </div>
