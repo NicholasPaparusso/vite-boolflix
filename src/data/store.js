@@ -8,7 +8,7 @@ export const store = reactive({
     api_key : 'eb176afe1a12790e8da0dee303e225fd',
     query: '',
     language: 'it-IT',
-    
+
   },
   type : "",
   trendData: [],
@@ -17,7 +17,7 @@ export const store = reactive({
   tv:[],
   movie:[],
   genre: [],
-  
+  selectedGenre : '',
   firstSearch :false,
 })
 
