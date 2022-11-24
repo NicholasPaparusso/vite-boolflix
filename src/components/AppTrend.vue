@@ -38,10 +38,11 @@ h2{
 }
   .np{
 
-    padding: 0 50px;
+    padding: 0 50px 50px 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     row-gap: 40px;
+    ;
   }
 </style>

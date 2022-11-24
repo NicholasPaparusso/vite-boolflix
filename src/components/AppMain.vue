@@ -44,12 +44,14 @@ h2{
   padding: 50px;
 }
   .np{
-
     padding: 0 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 40px;
-    margin-bottom: 80px ;
+    margin-bottom: 80px;
+
+    .row{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 40px;
+    }
   }
 </style>

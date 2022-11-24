@@ -45,8 +45,8 @@ methods:{
 
   
     <div class="np-card">
-      <img  :src="getImage()" :alt="obj.original_title || obj.name ">
-      <img class="replace-img" v-show="obj.poster_path === null" src="https://montagnolirino.it/wp-content/uploads/2015/12/immagine-non-disponibile.png" alt="">
+      <img v-if="obj.poster_path !== null"  :src="getImage()" :alt="obj.original_title || obj.name ">
+      <img class="replace-img" v-else src="https://montagnolirino.it/wp-content/uploads/2015/12/immagine-non-disponibile.png" alt="">
       <div class="info">
    
           <span>{{obj.original_title || obj.name}}</span>
@@ -83,7 +83,7 @@ methods:{
 
 @import '../style/partials/vars' ;
   .np-card{
-    width: calc((100% / 5 ) - 30px);
+    width: calc((100% / 6 ) - 30px);
     height: 400px;
     margin-right: 30px;
     cursor: pointer;
@@ -91,7 +91,7 @@ methods:{
     top: 0;
     border-radius: 10px;
     transition: all .3s ;
-
+    overflow: hidden;
     &:hover .info{
       display: block;
     }
@@ -114,7 +114,6 @@ methods:{
 
   .info{
     padding: 10px;
-
     position: absolute;
     background-color: $bg-color ;
     bottom: 0px;
@@ -148,6 +147,8 @@ methods:{
     }
     .description{
       overflow-y: auto;
+      overflow-x: hidden;
+      width: 100%;
       padding: 10px;
       height: 80px;
       scrollbar-width: thin;
@@ -159,19 +160,26 @@ methods:{
     }
   }
 
-  @media only screen and (max-width: 1400px) {
+  @media only screen and (max-width: 1500px) {
     .np-card{
-      width: calc((100% / 4) - 30px)
+      width: calc((100% / 5) - 30px)
     }
 
   }
     
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
+    .np-card{
+      width: calc((100% / 4) - 30px)
+    }
+  }
+    @media only screen and (max-width: 1100px) {
     .np-card{
       width: calc((100% / 3) - 30px)
     }
+
   }
-    @media only screen and (max-width: 800px) {
+
+  @media only screen and (max-width: 800px) {
     .np-card{
       width: calc((100% / 2) - 30px)
     }

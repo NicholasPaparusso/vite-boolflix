@@ -1,5 +1,6 @@
 <script>
 import { store } from '../data/store';
+import axios from 'axios';
 export default {
 name: 'AppMain',
 
@@ -10,6 +11,20 @@ data(){
 },
 
 methods:{
+
+  getGenre(type){
+
+       axios.get( store.genresApi + type + '/list', { params: store.apiPar})
+       .then(result => {
+         store.genre = result.data.genres
+         console.log(store.genre);
+         console.log(result.data);
+       })
+
+       .catch(error=>{
+         console.log('errore');
+       })
+      },
 
 }
 }
@@ -25,7 +40,7 @@ methods:{
 
   <input @keyup.enter="$emit('startSearch')"   v-model.trim="store.apiPar.query" :class="{'active': store.isInputOn}" type="text" placeholder="Titoli, Persone, Generi">
 
-  <select v-model="store.type" @change="$emit('startSearch')" name="" id="">
+  <select v-model="store.type" @change="this.getGenre(store.type)" name="" id="">
 
     <option selected value="">Seleziona</option>
     <option value="movie">Film</option>
@@ -33,10 +48,11 @@ methods:{
 
   </select>
 
-  <select>
+  <select v-show="store.type !== ''">
     <option value="">Generi</option>
-    <option value=""></option>
+    <option v-for="(gen, index) in  store.genre" :key="index" :value="gen.id">{{gen.name}}</option>
   </select>
+
 </div>
 
 
