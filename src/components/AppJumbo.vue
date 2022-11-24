@@ -66,7 +66,7 @@ export default {
 @import '../style/partials/vars' ;
   .carousel{
     margin-top: 80px ;
-    height: 600px;
+    height: 80vh;
     overflow: hidden;
     .item{
       position: relative;
